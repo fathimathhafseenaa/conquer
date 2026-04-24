@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Send, MessageCircle, Code, Mail, Phone, MapPin, Camera } from 'lucide-react'
-import logo from '../assets/logo.svg'
+import logo from '../assets/logo.png'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()

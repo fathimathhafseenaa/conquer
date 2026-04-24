@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import logo from '../assets/logo.svg'
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -11,7 +11,10 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
+
     window.addEventListener('scroll', handleScroll)
+    handleScroll()
+
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -28,18 +31,21 @@ const Navbar = () => {
       className={`navbar ${isScrolled ? 'scrolled' : ''}`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
     >
       <div className="navbar-container">
-        <motion.a
-          href="#home"
-          className="navbar-logo"
-          whileHover={{ scale: 1.05 }}
-        >
-          <img src={logo} alt="Conquer Logo" className="logo-image" />
+        <motion.a href="#home" className="navbar-logo">
+          <motion.img
+            src={logo}
+            alt="Conquer Logo"
+            className="logo-image"
+            animate={{
+              height: isScrolled ? 70 : 95
+            }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          />
         </motion.a>
 
-        {/* Desktop Navigation */}
         <div className="navbar-menu">
           {navItems.map((item, index) => (
             <motion.a
@@ -67,7 +73,6 @@ const Navbar = () => {
           Get Started
         </motion.button>
 
-        {/* Mobile Menu Toggle */}
         <button
           className="navbar-toggle"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -76,13 +81,11 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <motion.div
           className="mobile-menu"
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
         >
           {navItems.map((item, index) => (
             <motion.a
