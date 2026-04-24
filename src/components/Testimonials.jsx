@@ -23,13 +23,6 @@ const Testimonials = () => {
       content: 'Conquer Computers LLC is an excellent company to work with. We are highly satisfied with their services, as they consistently provide reliable solutions and outstanding support. Their team goes the extra mile to ensure customer satisfaction, and we truly appreciate their professionalism and commitment. They are reliable and highly recommended.',
       rating: 5,
       avatar: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)'
-    },
-    {
-      name: 'Marius Marver',
-      role: '1 review • 6 months ago',
-      content: 'We\'ve been using Conquer Computers in Dubai for all our IT support and managed services. The team is professional, quick to respond, and always reliable. They recently helped us with network cabling and cybersecurity setup. Honestly, one of the most efficient IT companies in Dubai we\'ve worked with.',
-      rating: 5,
-      avatar: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)'
     }
   ]
 
